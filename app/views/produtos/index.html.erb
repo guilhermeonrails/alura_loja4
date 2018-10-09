@@ -1,9 +1,3 @@
-<% if flash[:notice] %>
-    <div class="alert alert-success" role="alert">
-        <%= flash[:notice] %>
-    </div>
-<% end %>
-
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -21,8 +15,7 @@
             <td><%= produto.descricao %></td>
             <td><%= produto.preco %></td>
             <td><%= produto.quantidade %></td>
-            <td><%= button_to "Remover", produto, method: :delete, class:"btn btn-danger",
-            data: {confirm: "Tem certeza que deseja remover o produto #{produto.nome}?"}  %></td>
+            <td><%= link_to "Remover", produto, method: :delete %></td>
         </tr>
         <% end %>
     </tbody>

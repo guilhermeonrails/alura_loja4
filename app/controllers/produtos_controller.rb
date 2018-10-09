@@ -1,24 +1,14 @@
 class ProdutosController < ApplicationController
 
     def index
-        @produtos = Produto.order(nome: :asc).limit 6
+        @produtos = Produto.order(nome: :desc).limit 5
         @produto_com_desconto = Produto.order(:preco).limit 1
     end
     
-    def new
-        @produto = Produto.new
-    end
-    
-
     def create
-        valores = params.require(:produto).permit(:nome, :descricao, :preco, :quantidade)
-        @produto = Produto.new valores
-        if @produto.save
-            flash[:notice] = "Produto salvo com sucesso!"
-            redirect_to root_url
-        else 
-            render :new
-        end
+        produto = params.require(:produto).permit(:nome, :descricao, :preco, :quantidade)
+        Produto.create produto
+        redirect_to root_url
     end
 
     def destroy
@@ -26,5 +16,6 @@ class ProdutosController < ApplicationController
         Produto.destroy id
         redirect_to root_url
     end
+    
     
 end

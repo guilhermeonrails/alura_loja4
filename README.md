@@ -1,4 +1,4 @@
-# Aula 4 - Melhorando o código e o visual do projeto
+# Aula 4 - Melhorando o código e o visual
 
 Curso de Ruby on Rails 5
 
